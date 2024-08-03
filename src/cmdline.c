@@ -38,10 +38,10 @@ bool cmdline_register_arg(const char *short_name, const char *long_name,
     int i;
     for (i = 0; i < arg_count; ++i) {
         int cmp_result = 0;
-        if (short_name && short_names[i]) {
-            cmp_result = strcmp(short_name, short_names[i]);
-        } else if (long_name && long_names[i]) {
+        if (long_name && long_names[i]) {
             cmp_result = strcmp(long_name, long_names[i]);
+        } else if (short_name && short_names[i]) {
+            cmp_result = strcmp(short_name, short_names[i]);
         }
 
         if (cmp_result < 0) {
